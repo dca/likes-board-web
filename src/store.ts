@@ -32,7 +32,7 @@ export default new Vuex.Store({
       })
       .then((res) => res.json())
       .then((res) => {
-        //
+        context.dispatch('getArticles');
       });
     },
     postLike(context, id) {
