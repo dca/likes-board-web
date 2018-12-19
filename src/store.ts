@@ -5,12 +5,42 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-
+    articles: [],
   },
   mutations: {
-
+    articles(state, articles) {
+      state.articles = articles;
+    },
   },
-  actions: {
 
+  actions: {
+    getArticles(context) {
+      fetch(`http://localhost:5555/v1/articles`)
+      .then((res) => res.json())
+      .then((res) => {
+        context.commit('articles', res.data);
+      });
+    },
+    postArticle(context, article) {
+      fetch(`http://localhost:5555/v1/articles`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(article),
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        //
+      });
+    },
+    postLike(context, id) {
+      fetch(`http://localhost:5555/v1/articles/${id}/like`, {method: 'POST'})
+      .then((res) => res.json())
+      .then((res) => {
+        //
+      });
+    },
   },
 });

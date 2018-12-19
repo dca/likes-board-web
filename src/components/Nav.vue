@@ -1,15 +1,19 @@
 <template>
-  <div class="hello">
-    
-  </div>
+  <b-navbar toggleable="md" type="dark" variant="info">
+
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+    <b-navbar-brand href="#">Likes</b-navbar-brand>
+
+  </b-navbar>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
+export default class Nav extends Vue {
+
 }
 </script>
 
